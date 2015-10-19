@@ -1,23 +1,21 @@
 %h2 Register
 
-%form
+= form_for @user do |f|
   %br
   %fieldset.form-group
     %label Name
     .row
       .col-sm-4
-        %input.form-control(type="Name")
+        = f.text_field :full_name, class: "form-control"
   %fieldset.form-group
     %label Email
     .row
       .col-sm-4
-        %input.form-control(type="Email")
+        = f.text_field :email, class: "form-control"
   %fieldset.form-group
     %label Password
     .row
       .col-sm-4
-        %input.form-control(type="Password")   
+        = f.password_field :password, class: "form-control"   
   %fieldset.form-group.action
-    %input(type="submit" value="Register" class="btn btn-default")
-
-
+    = f.submit "Register", class: "btn btn-default"
