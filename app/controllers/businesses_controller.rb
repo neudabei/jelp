@@ -5,11 +5,12 @@ class BusinessesController < ApplicationController
 
   def new
     @business = Business.new
+    @businesses = Business.all
   end
 
   def create
     @business = Business.new(business_params)
-    
+
     if @business.save
       flash[:notice] = "Thanks for #{@business.name} to Jelp"
       redirect_to new_business_path

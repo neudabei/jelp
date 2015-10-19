@@ -21,6 +21,16 @@ describe BusinessesController do
       expect(assigns(:business)).to be_an_instance_of(Business)
     end
 
+    it "sets the @businesses variable" do
+      business1 = Business.create(name: "Italian Restaurant")
+      business2 = Business.create(name: "Apple Store")
+      get :new
+      expect(assigns(:businesses)).to eq([business1, business2])
+      # why does 
+      # expect(assigns(:businesses)).to be_an_instance_of(Business)
+      # not work?
+    end
+
     it "renders the new template" do
       get :new
       expect(response).to render_template("new")
