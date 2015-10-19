@@ -12,7 +12,7 @@
             %span.glyphicon.glyphicon-star-empty(aria-hidden="true")
           %p.text-left= "Review from User x  wrote for #{business.name}"
         .col-md-6
-          %p.text-right= ctime_ago_in_words(business.created_at)
+          %p.text-right.small= ctime_ago_in_words(business.created_at)
           %br
           %br
       %p.text-justify= business.description
