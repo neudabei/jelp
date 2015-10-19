@@ -1,0 +1,16 @@
+%h2 Login
+
+= form_tag login_path do
+  %br
+  %fieldset.form-group
+    %label Email
+    .row
+      .col-sm-4
+        = email_field :email, "Email", class: "form-control"
+  %fieldset.form-group
+    %label Password
+    .row
+      .col-sm-4
+        = password_field :password, "Password", class: "form-control"  
+  %fieldset.form-group.action
+    = submit_tag "Login", class: "btn btn-default"
