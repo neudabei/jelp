@@ -3,8 +3,8 @@ require 'rails_helper'
 describe BusinessesController do
   describe "GET index" do
     it "sets the @businesses variable" do
-      business1 = Business.create(name: "Italian Restaurant")
-      business2 = Business.create(name: "Apple Store")
+      business1 = Fabricate(:business)
+      business2 = Fabricate(:business)
       get :index
       expect(assigns(:businesses)).to eq([business1, business2])
     end
@@ -22,8 +22,8 @@ describe BusinessesController do
     end
 
     it "sets the @businesses variable" do
-      business1 = Business.create(name: "Italian Restaurant")
-      business2 = Business.create(name: "Apple Store")
+      business1 = Fabricate(:business)
+      business2 = Fabricate(:business)
       get :new
       expect(assigns(:businesses)).to eq([business1, business2])
       # why does 
