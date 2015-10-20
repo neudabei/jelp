@@ -6,11 +6,11 @@
     %label Email
     .row
       .col-sm-4
-        = email_field :email, "Email", class: "form-control"
+        %input(name="email" id="email" type="email" class="form-control")
   %fieldset.form-group
     %label Password
     .row
       .col-sm-4
-        = password_field :password, "Password", class: "form-control"  
+        %input(name="password" id="password" type="password" class="form-control")
   %fieldset.form-group.action
     = submit_tag "Login", class: "btn btn-default"
