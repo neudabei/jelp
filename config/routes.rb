@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 
   resources :businesses, only: [:index, :new, :create]
   resources :users, only: [:create]
+  resources :reviews, only: [:index]
 end

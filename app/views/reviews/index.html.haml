@@ -1,0 +1,22 @@
+- @reviews.each do |review|
+  %br
+  .row
+    .col-md-8
+      .row
+        .col-md-6
+          %p.text-left
+          = review.starcount
+            %span.glyphicon.glyphicon-star(aria-hidden="true")
+            %span.glyphicon.glyphicon-star(aria-hidden="true")
+            %span.glyphicon.glyphicon-star(aria-hidden="true")
+            %span.glyphicon.glyphicon-star-empty(aria-hidden="true")
+            %span.glyphicon.glyphicon-star-empty(aria-hidden="true")
+          %p.text-left= "Review from #{review.user} for #{review.business}"
+        .col-md-6
+          %p.text-right= ctime_ago_in_words(review.created_at)
+          %br
+          %br
+      %p.text-justify= review.body
+    .col-md-4
+  %br
+  %br
