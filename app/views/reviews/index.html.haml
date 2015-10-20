@@ -5,13 +5,12 @@
       .row
         .col-md-6
           %p.text-left
-          = review.starcount
-            %span.glyphicon.glyphicon-star(aria-hidden="true")
-            %span.glyphicon.glyphicon-star(aria-hidden="true")
-            %span.glyphicon.glyphicon-star(aria-hidden="true")
-            %span.glyphicon.glyphicon-star-empty(aria-hidden="true")
-            %span.glyphicon.glyphicon-star-empty(aria-hidden="true")
-          %p.text-left= "Review from #{review.user} for #{review.business}"
+            %span{class: "glyphicon glyphicon-star#{"-empty" if review.stars < 1}", 'aria-hidden' => 'true' }
+            %span{class: "glyphicon glyphicon-star#{"-empty" if review.stars < 2}", 'aria-hidden' => 'true' }            
+            %span{class: "glyphicon glyphicon-star#{"-empty" if review.stars < 3}", 'aria-hidden' => 'true' }            
+            %span{class: "glyphicon glyphicon-star#{"-empty" if review.stars < 4}", 'aria-hidden' => 'true' }
+            %span{class: "glyphicon glyphicon-star#{"-empty" if review.stars < 5}", 'aria-hidden' => 'true' }
+          %p.text-left= "Review from #{review.user.full_name} for #{review.business.name}"
         .col-md-6
           %p.text-right= ctime_ago_in_words(review.created_at)
           %br

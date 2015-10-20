@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'businesses#index'
+  root to: 'reviews#index'
 
   get 'ui(/:action)', controller: 'ui'
   get 'register', to: 'users#new'
