@@ -1,4 +1,6 @@
 class BusinessesController < ApplicationController
+  before_action :require_user, only: [:create] 
+
   def index
     @businesses = Business.all
   end

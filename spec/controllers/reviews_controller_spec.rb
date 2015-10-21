@@ -15,7 +15,7 @@ describe ReviewsController do
 
     it "shows most recent reviews first" do
       user1 = Fabricate(:user)
-      user2 = Fabricate(:user)
+      user2 = User.create(full_name: "Bob Stein", email: "bobstein@domain.com", password: "password321")
       business1 = Fabricate(:business)
       business2 = Fabricate(:business)
       review1 = Review.create(user: user1, business: business1, body: "Great business!", stars: 4, created_at: 2.days.ago)
