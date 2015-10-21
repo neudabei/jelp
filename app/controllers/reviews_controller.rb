@@ -6,6 +6,22 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @business = Business.find_by(id: params[:business_id])
     
+    @review = @business.reviews.build(review_params)
+    @review.user = current_user
+
+    if @review.save
+      flash[:notice] = "Thanks for adding your review to Jelp"
+    else
+      flash[:error] = "Your review could not be added. Please make sure you fill out all fields."
+    end
+    redirect_to business_path(@business)
+  end
+
+  private
+
+  def review_params
+    params.require(:review).permit(:body, :stars)
   end
 end
