@@ -5,6 +5,11 @@ class BusinessesController < ApplicationController
     @businesses = Business.all
   end
 
+  def show
+    @business = Business.find_by(id: params[:id])
+    @review = Review.new
+  end
+
   def new
     @business = Business.new
     @businesses = Business.all

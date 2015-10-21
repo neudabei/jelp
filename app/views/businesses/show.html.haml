@@ -1,0 +1,60 @@
+- @businesses.each do |business|
+  %h2= business.name
+  %br
+  %br
+
+  %br
+  .row
+    .col-md-8
+      .row
+        .col-md-6
+          %p.text-left 
+            %span.glyphicon.glyphicon-star(aria-hidden="true")
+            %span.glyphicon.glyphicon-star(aria-hidden="true")
+            %span.glyphicon.glyphicon-star(aria-hidden="true")
+            %span.glyphicon.glyphicon-star-empty(aria-hidden="true")
+            %span.glyphicon.glyphicon-star-empty(aria-hidden="true")
+          %p.text-left= business.website
+        .col-md-6
+          %br
+          %br
+          %br
+      %p.text-justify= business.description
+    .col-md-4
+  %br
+  %br
+
+.row
+  .col-md-8
+    - form_for @review do |f|
+      %fieldset.form-group
+        = f.text_area_field :body, class: "form-control", placeholder: "Write your review here"
+    .row
+      .col-md-6
+        %fieldset.form-group
+        = f.select :stars, ['1', '2', '3', '4', '5'], class: "form-control"
+      .col-md-6
+        %fieldset.form-group.action
+          = f.submit "Submit review", class: "btn btn-default btn-block"
+  .col-md-4
+
+%br
+%br
+
+- @reviews.each do |review|
+  .row
+    .col-md-8
+      .col-md-4 
+      .col-md-8
+        .row
+          .col-md-6
+            %p.text-left 
+              - 5.times do |i|
+              %span{class: "glyphicon glyphicon-star#{"-empty" if review.stars < i+1}", 'aria-hidden' => 'true' }
+            %p.text-left= "Review from #{review.user.full_name} for #{review.business.name}"
+          .col-md-6
+            %p.text-right= ctime_ago_in_words(review.created_at)
+            %br
+            %br
+        %p.text-justify= review.body
+    .col-md-4

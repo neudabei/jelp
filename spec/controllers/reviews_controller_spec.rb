@@ -25,4 +25,30 @@ describe ReviewsController do
       expect(assigns(:reviews)).to eq([review3, review2, review1])
     end
   end
+
+  describe "POST create" do
+    context "with authenticated users" do
+      before do
+        session[:user_id] = Fabricate(:user).id
+      end
+
+      it "creates a review record when the input is valid" do
+        
+      end
+
+      it "redirects to the business show page"
+      it "sets the flash notice"
+
+      it "doesn't create a review record when inpus is invalid"
+      it "it renders the business show page"
+      it "sets the flash error"
+
+    end
+
+    context "with unauthenticated users" do
+      it "does not create a review record"
+      it "redirects to the login page"
+      it "sets a flash error message"
+    end
+  end
 end
