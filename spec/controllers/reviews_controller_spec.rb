@@ -28,14 +28,15 @@ describe ReviewsController do
 
   describe "POST create" do
     context "with authenticated users" do
+      let(:john) {Fabricate(:user)}
+      let(:store) {Fabricate(:business)}
+
       before do
-        business = Fabricate(:business)
-        user = Fabricate(:user)
-        session[:user_id] = user.id
+        session[:user_id] = john.id
       end
 
       it "creates a review record when the input is valid" do
-        post :create, review: {body: "Great place. We had a good time.", stars: 4, business: business, user: user}
+        post :create, review: {body: "Great place. We had a good time.", stars: 4, business: store, user: john}
         expect(Review.first.body).to eq("Great place. We had a good time.")
       end
 

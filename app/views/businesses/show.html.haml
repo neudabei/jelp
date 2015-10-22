@@ -23,18 +23,19 @@
 %br
 %br
 
+
 .row
   .col-md-8
-    = form_for @review do |f|
+    = form_for [@business, @review] do |f|
       %fieldset.form-group
         = f.text_area :body, class: "form-control", placeholder: "Write your review here"
-    .row
-      .col-md-6
-        %fieldset.form-group
-        = f.select :stars, ['1 Star', '2 Stars', '3 Stars', '4 Stars', '5 Stars'], class: "form-control"
-      .col-md-6
-        %fieldset.form-group.action
-          = f.submit "Submit review", class: "btn btn-default btn-block"
+      .row
+        .col-md-6
+          %fieldset.form-group
+            = f.select :stars, [1,2,3,4,5], class: "form-control"
+        .col-md-6
+          %fieldset.form-group
+            = f.submit "Submit review", class: "btn btn-default btn-block"
   .col-md-4
 
 %br

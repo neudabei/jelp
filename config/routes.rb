@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
 
-  resources :businesses, only: [:index, :show, :new, :create]
+  resources :businesses, only: [:index, :show, :new, :create] do
+    resources :reviews, only: [:index, :create]
+  end
+
   resources :users, only: [:create]
-  resources :reviews, only: [:index, :create]
 end
