@@ -36,7 +36,9 @@ describe ReviewsController do
       end
 
       it "creates a review record when the input is valid" do
-        post :create, review: {body: "Great place. We had a good time.", stars: 4, business: store, user: john}
+        binding.pry
+
+        post :create, review: {body: "Great place. We had a good time.", stars: 4}, business_id: store.id
         expect(Review.first.body).to eq("Great place. We had a good time.")
       end
 

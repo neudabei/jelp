@@ -51,10 +51,12 @@
             %p.text-left 
               - 5.times do |i|
                 %span{class: "glyphicon glyphicon-star#{"-empty" if review.stars < i+1}", 'aria-hidden' => 'true' }
-            %p.text-left= "Review from #{review.user.full_name} for #{review.business.name}"
+            %p.text-left= "Review from #{review.user.full_name}"
           .col-md-6
             %p.text-right= ctime_ago_in_words(review.created_at)
             %br
             %br
         %p.text-justify= review.body
+        %br
+        %br
     .col-md-4
