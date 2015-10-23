@@ -32,7 +32,7 @@
       .row
         .col-md-6
           %fieldset.form-group
-            = f.select :stars, [1,2,3,4,5], class: "form-control"
+            = f.select :stars, [["1 Star", 1], ["2 Stars", 2], ["3 Stars", 3], ["4 Stars", 4], ["5 Stars", 5]], {}, class: "form-control"
         .col-md-6
           %fieldset.form-group
             = f.submit "Submit review", class: "btn btn-default btn-block"

@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    binding.pry
     @business = Business.find_by(id: params[:business_id])
     
     @review = @business.reviews.build(review_params)
@@ -14,7 +15,7 @@ class ReviewsController < ApplicationController
     if @review.save
       flash[:notice] = "Thanks for adding your review to Jelp"
     else
-      flash[:error] = "Your review could not be added. Please make sure you fill out all fields."
+      flash[:error] = "Your review could not be added. You can only add one review per business."
     end
     redirect_to business_path(@business)
   end
