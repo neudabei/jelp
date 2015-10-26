@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.save
-      flash[:notice] = "Thanks for adding your review to Jelp"
+      flash[:notice] = "Thanks for adding your review to Jelp."
     else
       flash[:error] = "Your review could not be added. You can only add one review per business."
     end

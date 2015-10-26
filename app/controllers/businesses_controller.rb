@@ -19,11 +19,11 @@ class BusinessesController < ApplicationController
     @business = Business.new(business_params)
 
     if @business.save
-      flash[:notice] = "Thanks for adding #{@business.name} to Jelp"
+      flash[:notice] = "Thanks for adding #{@business.name} to Jelp."
       redirect_to new_business_path
     else
       flash[:error] = "The business could not be added."
-      render :new
+      redirect_to new_business_path
     end
   end
 
