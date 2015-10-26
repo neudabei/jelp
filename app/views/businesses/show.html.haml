@@ -8,11 +8,8 @@
     .row
       .col-md-6
         %p.text-left 
-          %span.glyphicon.glyphicon-star(aria-hidden="true")
-          %span.glyphicon.glyphicon-star(aria-hidden="true")
-          %span.glyphicon.glyphicon-star(aria-hidden="true")
-          %span.glyphicon.glyphicon-star-empty(aria-hidden="true")
-          %span.glyphicon.glyphicon-star-empty(aria-hidden="true")
+          - 5.times do |i|
+            %span{class: "glyphicon glyphicon-star#{"-empty" if review_average(@business) < i+1}", 'aria-hidden' => 'true' }
         %p.text-left= @business.website
       .col-md-6
         %br

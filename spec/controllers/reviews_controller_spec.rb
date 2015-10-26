@@ -40,19 +40,54 @@ describe ReviewsController do
         expect(Review.first.body).to eq("Great place. We had a good time.")
       end
 
-      it "redirects to the business show page"
-      it "sets the flash notice"
+      it "redirects to the business show page" do
+        post :create, review: {body: "Great place. We had a good time.", stars: 4}, business_id: store.id
+        expect(response).to redirect_to business_path(store.id)
+      end
 
-      it "doesn't create a review record when inpus is invalid"
-      it "it renders the business show page"
-      it "sets the flash error"
+      it "sets the flash notice" do
+        post :create, review: {body: "Great place. We had a good time.", stars: 4}, business_id: store.id
+        expect(flash[:notice]).not_to be_blank
+      end
+
+      it "doesn't create a review record when inpus is invalid" do
+        post :create, review: {stars: 4}, business_id: store.id
+        expect(Review.count).to eq(0)
+      end
+
+      it "it redirects to the business show page" do
+        post :create, review: {stars: 4}, business_id: store.id
+        expect(response).to redirect_to business_path(store.id)
+      end
+
+      it "sets the flash error" do
+        post :create, review: {stars: 4}, business_id: store.id
+        expect(flash[:error]).not_to be_blank
+      end
 
     end
 
     context "with unauthenticated users" do
-      it "does not create a review record"
-      it "redirects to the login page"
-      it "sets a flash error message"
+      let(:store) {Fabricate(:business)}
+
+      before do
+        @request.env['HTTP_REFERER'] = "http://test.host/businesses/#{store.id}"
+      end
+
+      it "does not create a review record" do
+        post :create, review: {body: "Great place. We had a good time.", stars: 4}, business_id: store.id
+        expect(Review.count).to eq(0)
+      end
+
+      it "redirects to the business page" do
+        post :create, review: {body: "Great place. We had a good time.", stars: 4}, business_id: store.id
+        expect(response).to redirect_to business_path(store.id)
+      end
+
+      it "sets a flash error message" do
+        post :create, review: {body: "Great place. We had a good time.", stars: 4}, business_id: store.id
+        expect(flash[:error]).not_to be_blank
+      end
     end
   end
 end

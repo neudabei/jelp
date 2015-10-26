@@ -6,7 +6,6 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    binding.pry
     @business = Business.find_by(id: params[:business_id])
     
     @review = @business.reviews.build(review_params)
