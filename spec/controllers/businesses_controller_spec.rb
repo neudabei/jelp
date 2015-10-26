@@ -78,4 +78,23 @@ describe BusinessesController do
       end
     end
   end
+
+  describe "GET show" do
+    let(:store){Fabricate(:business)}
+
+    it "sets the @business instance variable" do
+      get :show, id: store.id
+      expect(assigns(:business)).to eq(store)
+    end
+
+    it "sets the @review instance variable" do
+      get :show, id: store.id
+      expect(assigns(:review)).to be_an_instance_of(Review)
+    end
+
+    it "renders the show template" do
+      get :show, id: store.id
+      expect(response).to render_template :show
+    end 
+  end
 end
