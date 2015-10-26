@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_user, except: [:new, :create]
   def new
     @user = User.new
   end
@@ -13,6 +14,10 @@ class UsersController < ApplicationController
       flash[:error] = "You could not be registered."
       render :new
     end
+  end
+
+  def show
+    @user = User.find_by(id: params[:id])
   end
 
   private

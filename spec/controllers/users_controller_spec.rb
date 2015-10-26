@@ -50,4 +50,25 @@ describe UsersController do
       end
     end
   end
+
+  describe "GET show" do
+    context "when authenticated" do
+      let(:john){Fabricate(:user)}
+      let(:bob){Fabricate(:user, email: "bob@domain.com")}
+
+      before do
+        session[:user_id] = john.id
+      end
+
+      it "sets the @user instance variable" do
+        get :show, id: bob.id
+        expect(assigns(:user)).to eq(bob)
+      end
+
+      it "renders the show template" do
+        get :show, id: bob.id
+        expect(response).to render_template :show
+      end
+    end
+  end
 end
