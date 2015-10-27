@@ -4,6 +4,8 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'pg'
 gem 'bcrypt'
+gem 'fabrication'
+gem 'faker'
 
 gem 'rails', '4.2.1'
 gem 'sqlite3'
@@ -22,8 +24,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers'
   gem 'pry'
-  gem 'fabrication'
-  gem 'faker'
   gem 'capybara'
   gem 'launchy'
 end
