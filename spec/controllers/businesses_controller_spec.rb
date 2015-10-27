@@ -48,7 +48,7 @@ describe BusinessesController do
 
       it "renders the the new template when the input is invalid" do
         post :create, business: {description: "Great chicken!", website: "www.pollos-hermanos.com"}
-        expect(response).to render_template :new
+        expect(response).to redirect_to new_business_path
       end
 
       it "sets the flash message with the error" do
