@@ -6,9 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-5.times do |i|
-  Fabricate(:user, email: "email#{i+1}@domain.com")
-end
+Fabricate(:user, email: "email1@domain.com")
+Fabricate(:user, email: "email2@domain.com")
+Fabricate(:user, email: "email3@domain.com")
+Fabricate(:user, email: "email4@domain.com")
+Fabricate(:user, email: "email5@domain.com")
 
 Fabricate(:business, user_id: 1)
 Fabricate(:business, user_id: 2)
