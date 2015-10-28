@@ -9,12 +9,11 @@ feature "User interacts with review" do
     fill_out_form
     expect(page).to have_content "Thanks for adding your review to Jelp."
   end
-end
-
-private
 
   def fill_out_form
     fill_in "review_body", with: "What a great business!"
     select('3', :from => 'review_stars') 
     click_button "Submit review"
   end
+end
+
