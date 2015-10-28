@@ -7,12 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-john = User.create!(full_name: "John Doe", "john@example.com", password: "password123")
-jane = User.create!(full_name: "Jane Doe", "jane@example.com", password: "password123")
-erica = User.create!(full_name: "Erica Emmerich", "erica@domain.com", password: "password123")
-mike = User.create!(full_name: "Mike Stone", "mike@domain.com", password: "password123")
-tom = User.create!(full_name: "Tom Weatherfield", "tom@domain.com", password: "password123")
-patricia = User.create!(full_name: "Patricia Johnson", "patricia@domain.com", password: "password123")
+john = User.create!(full_name: "John Doe", email: "john@example.com", password: "password123")
+jane = User.create!(full_name: "Jane Doe", email: "jane@example.com", password: "password123")
+erica = User.create!(full_name: "Erica Emmerich", email: "erica@domain.com", password: "password123")
+mike = User.create!(full_name: "Mike Stone", email: "mike@domain.com", password: "password123")
+tom = User.create!(full_name: "Tom Weatherfield", email: "tom@domain.com", password: "password123")
+patricia = User.create!(full_name: "Patricia Johnson", email: "patricia@domain.com", password: "password123")
 
 grocery = Business.create!(name: "Fruit Store", description: "Sell fruits and vegetables.", website: "http://www.grocery-store.com", user_id: 1)
 coffee_shop = Business.create!(name: "Black Bean", description: "Freshly brewed coffee. Open 7 days a week.", website: "http://www.blackbean.com", user_id: 2)
@@ -30,4 +30,4 @@ Review.create!(body: "Good selection of meet. Bought here for our barbecue. The 
 Review.create!(body: "Looked good, but I had to wait for hours in the queue.", stars: 2, user_id: 3, business_id: 4, created_at: 3.days.ago)
 Review.create!(body: "Fast and easy to rent a car.", stars: 5, user_id: 5, business_id: 5)
 Review.create!(body: "Ok, nothing to complain about.", stars: 4, user_id: 4, business_id: 5)
-Review.create!(body: "Don't recommend this place. I had to pay a lot for extras.", stars: 0, user_id: 1, business_id: 5)
+Review.create!(body: "Don't recommend this place. I had to pay a lot for extras.", stars: 0, user_id: 1, business_id: 5, created_at: 5.days.ago)
