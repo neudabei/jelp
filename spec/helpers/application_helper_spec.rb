@@ -16,4 +16,11 @@ describe "ApplicationHelper" do
       expect(helper.review_average(store)).to eq(0)
     end
   end
+
+  describe "#fix_url" do
+    it "converts a url without 'http://' prefix into one with 'http://'" do
+      url = "domain.com"
+      expect(helper.fix_url(url)).to eq("http://domain.com")
+    end
+  end
 end

@@ -13,4 +13,8 @@ module ApplicationHelper
     business.reviews.count > 0 ? (stars_sum / business.reviews.count) : 0
   end
 
+  def fix_url(url)
+    url.start_with?("http://") ? url : "http://" + url
+  end
+
 end

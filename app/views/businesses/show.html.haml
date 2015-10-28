@@ -10,7 +10,7 @@
         %p.text-left 
           - 5.times do |i|
             %span{class: "glyphicon glyphicon-star#{"-empty" if review_average(@business) < i+1}", 'aria-hidden' => 'true' }
-        %p.text-left= @business.website
+        %p.text-left= link_to fix_url(@business.website), fix_url(@business.website)
       .col-md-6
         %br
         %br
