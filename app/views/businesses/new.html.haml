@@ -5,19 +5,18 @@
 = form_for @business do |f|
   .row
     .col-md-8
-      %form
-        .row
-          .col-md-6
-            %fieldset.form-group
-              = f.text_field :name, class: "form-control", placeholder: "Business Name"
-            %fieldset.form-group
-              = f.text_field :website, class: "form-control", placeholder: "Business website"
-            %fieldset.form-group.action
-              = f.submit "Submit business", class: "btn btn-default btn-block"
+      .row
+        .col-md-6
+          %fieldset.form-group
+            = f.text_field :name, class: "form-control", placeholder: "Business Name"
+          %fieldset.form-group
+            = f.text_field :website, class: "form-control", placeholder: "Business website"
+          %fieldset.form-group.action
+            = f.submit "Submit business", class: "btn btn-default btn-block"
 
-          .col-md-6
-            %fieldset.form-group
-              = f.text_area :description, class: "form-control", placeholder: "Description", rows: "5"
+        .col-md-6
+          %fieldset.form-group
+            = f.text_area :description, class: "form-control", placeholder: "Description", rows: "5"
     .col-md-4
 
     .col-md-8

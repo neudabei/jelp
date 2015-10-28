@@ -18,4 +18,3 @@ private
     select('3', :from => 'review_stars') 
     click_button "Submit review"
   end
-
