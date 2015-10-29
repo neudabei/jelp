@@ -41,7 +41,7 @@ describe BusinessesController do
         expect(flash[:notice]).not_to be_blank
       end
 
-      it "does not create a business record when the input is valid" do
+      it "does not create a business record when the input is invalid" do
         post :create, business: {description: "Great chicken!", website: "www.pollos-hermanos.com"}
         expect(Business.count).to eq(0)
       end
