@@ -15,4 +15,18 @@ describe CategoriesController do
       expect(response).to render_template (:index)
     end
   end
+
+  describe "GET show" do
+    it "sets the @category instance variable" do
+      restaurants = Category.create(name: "restaurants", description: "all the places you can eat")
+      get :show, {id: restaurants.id}
+      expect(assigns(:category)).to eq(restaurants)
+    end
+
+    it "renders the show tempate" do
+      restaurants = Category.create(name: "restaurants", description: "all the places you can eat")
+      get :show, {id: restaurants.id}
+      expect(response).to render_template :show
+    end
+  end
 end
