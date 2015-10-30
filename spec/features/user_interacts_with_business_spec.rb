@@ -1,11 +1,20 @@
 require 'rails_helper'
 
 feature "User interacts with business" do
+  let(:restaurant){Fabricate(:business)}
+
   scenario "user adds a new business" do
     sign_in
     click_link "Add a business"
     fill_out_form
     expect(page).to have_content "Pasta Palace"
+  end
+
+  scenario "user searches for a business" do
+    visit root_path
+    fill_in "search_term", with: "#{restaurant.name}"
+    click_button "Submit"
+    expect(page).to have_content "#{restaurant.name}"
   end
   
   def fill_out_form
