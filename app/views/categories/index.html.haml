@@ -1,0 +1,20 @@
+%h2 Categories
+%br
+%br
+
+- @categories.each do |category|
+  %br
+  .row
+    .col-md-8
+      .row
+        .col-md-6
+
+          %p.text-left= link_to category.name, category_path(category)
+        .col-md-6
+          %br
+          %br
+          %br
+      %p.text-justify= category.description
+    .col-md-4
+  %br
+  %br
