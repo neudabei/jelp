@@ -34,10 +34,10 @@
             - 5.times do |i|
               %span{class: "glyphicon glyphicon-star#{"-empty" if review_average(business) < i+1}", 'aria-hidden' => 'true' }
           %p.text-left= link_to business.name, business_path(business)
-        .col-md-6
-          %br
-          %br
-          %br
+          - business.categories.each do |category|
+            %p.text-left
+              %span.btn.btn-default.btn-xs{type: "button"}
+                = link_to category.name, category_path(category)
       %p.text-justify= business.description
     .col-md-4
   %br
