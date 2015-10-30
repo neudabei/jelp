@@ -1,6 +1,5 @@
 %h2 Categories
 %br
-%br
 
 - @categories.each do |category|
   %br
@@ -11,8 +10,6 @@
 
           %p.text-left= link_to category.name, category_path(category)
         .col-md-6
-          %br
-          %br
           %br
       %p.text-justify= category.description
     .col-md-4

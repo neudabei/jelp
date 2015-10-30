@@ -1,0 +1,21 @@
+%h2= @category.name
+%br
+
+- @category.businesses.each do |business|
+  %br
+  .row
+    .col-md-8
+      .row
+        .col-md-6
+          %p.text-left
+            - 5.times do |i|
+              %span{class: "glyphicon glyphicon-star#{"-empty" if review_average(business.review) < i+1}", 'aria-hidden' => 'true' }  
+          %p.text-left= {link_to business.name, business_path(business)
+        .col-md-6
+          %p.text-right= business.website
+          %br
+          %br
+      %p.text-justify= business.description
+    .col-md-4
+  %br
+  %br
