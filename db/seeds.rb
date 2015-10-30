@@ -26,9 +26,9 @@ butcher = Business.create!(name: "Butcher King", description: "The finest meats.
 car_rental = Business.create!(name: "Rent a car", description: "Rent cars. From small to luxury models.", website: "http://www.rent-a-car.com", user_id: 4)
 
 # Categories
-restaurants = Category.create!(name: "restaurants", description: "all the places you can eat")
-cafes = Category.create!(name: "cafes", description: "small, informal restaurants serving coffee and light refreshments")
-super_markets = Category.create!(name: "supermarkets", description: "buy groceries")
+restaurants = Category.create!(name: "Restaurants", description: "all the places you can eat")
+cafes = Category.create!(name: "Cafes", description: "small, informal restaurants serving coffee and light refreshments")
+super_markets = Category.create!(name: "Supermarkets", description: "buy groceries")
 
 # Associate businesses with categories
 grocery.categories << super_markets
