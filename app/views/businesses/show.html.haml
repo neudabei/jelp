@@ -12,7 +12,10 @@
             %span{class: "glyphicon glyphicon-star#{"-empty" if review_average(@business) < i+1}", 'aria-hidden' => 'true' }
         %p.text-left= link_to fix_url(@business.website), fix_url(@business.website)
       .col-md-6
-        %br
+        - @business.categories.each do |category|
+          %p.text-right
+            %span.btn.btn-default.btn-xs{:type => "button"}
+              = link_to category.name, category_path
         %br
         %br
     %p.text-justify= @business.description
