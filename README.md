@@ -13,3 +13,9 @@ Feature list to build:
 6. User can review a business (add a new review)  
 7. User can see another user's profile page  
   - also shows this user's past reviews  
+
+  Additional features:
+
+- user can see a list of categories
+- user can see a list of businesses in a category
+- user can search for a business
