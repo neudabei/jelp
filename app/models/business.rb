@@ -6,6 +6,7 @@ class Business < ActiveRecord::Base
   belongs_to :user
 
   def self.search_by_name(search_term)
+    return [] if search_term == ""
     where("name LIKE ?", "%#{search_term}%").order("created_at DESC")
   end
 end
