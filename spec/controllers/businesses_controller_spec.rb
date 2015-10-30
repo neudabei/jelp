@@ -97,4 +97,18 @@ describe BusinessesController do
       expect(response).to render_template :show
     end 
   end
+
+  describe "GET search" do
+    let(:store){Fabricate(:business)}
+       
+    it "sets the @results instance variable" do
+      get :search, search_term: "#{store.name}"
+      expect(assigns(:results)).to eq([store])
+    end
+
+    it "renders the search_results template" do
+      get :search, search_term: "#{store.name}"
+      expect(response).to render_template :search_results
+    end
+  end
 end

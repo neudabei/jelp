@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   resources :businesses, only: [:show, :new, :create] do
     resources :reviews, only: [:index, :create]
+    collection do
+      get :search, to: "businesses#search"
+    end
   end
 
   resources :users, only: [:create, :show]

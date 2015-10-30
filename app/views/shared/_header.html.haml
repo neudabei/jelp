@@ -9,6 +9,10 @@
       = link_to "Jelp", root_path, class: "navbar-brand"
 
     .collapse.navbar-collapse{id: "bs-example-navbar-collapse-1"}
+      = form_tag search_businesses_path, class: "navbar-form navbar-left", method: "get" do
+        .form-group
+          %input(type="text" name="search_term" class="form-control" placeholder="Search")
+        = submit_tag "Submit", class: "btn btn-default"
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", role: "button", "aria-haspopup" => "true", "aria-expanded" => "false"}(href="#")
