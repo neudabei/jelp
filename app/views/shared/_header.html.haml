@@ -11,7 +11,7 @@
     .collapse.navbar-collapse{id: "bs-example-navbar-collapse-1"}
       = form_tag search_businesses_path, class: "navbar-form navbar-left", method: "get" do
         .form-group
-          %input(type="text" name="search_term" class="form-control" placeholder="Search")
+          %input(type="text" name="search_term" class="form-control" placeholder="Search businesses")
         = submit_tag "Submit", class: "btn btn-default"
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
